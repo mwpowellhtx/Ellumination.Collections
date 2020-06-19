@@ -1,0 +1,95 @@
+<Project>
+
+    <PropertyGroup>
+        <Authors>Michael W. Powell</Authors>
+        <Company>Ellumination Technologies</Company>
+        <Product>Ellumination.Collections</Product>
+        <Copyright>Copyright &#169; 2016-2020</Copyright>
+        <NoWarn>NU1603</NoWarn>
+        <!--<NoWarn>NU1603;NU5128</NoWarn>-->
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageProjectUrl>https://github.com/mwpowellhtx/Ellumination.Collections</PackageProjectUrl>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <RootNamespace>Ellumination.Collections</RootNamespace>
+    </PropertyGroup>
+
+    <!-- TODO: TBD: no need to spec any GuidAttribute here... -->
+    <!--<ItemGroup>
+        --><!-- The following GUID is for the ID of the typelib if this project is exposed to COM. --><!--
+        <AssemblyAttribute Condition="'$(GuidAttributeParameter)' != ''" Include="System.Runtime.InteropServices.GuidAttribute">
+            <_Parameter1>$(GuidAttributeParameter)</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>-->
+
+    <!-- TODO: TBD: repositioning the unit testing bits to the Unit.Testing.props definitions... -->
+    <!-- TODO: TBD: not ready for broader solution wide adoption just yet, working on a couple of specific packages... -->
+    <PropertyGroup>
+        <!-- We define this ubiquitously in order to keep the version numbers properly aligned throughout. -->
+        <CodeGenerationRoslynPackagesVersion>0.4.88</CodeGenerationRoslynPackagesVersion>
+        <MicrosoftCodeAnalysisCSharpVersion>2.9.0</MicrosoftCodeAnalysisCSharpVersion>
+        <XunitVersion>2.4.1</XunitVersion>
+        <XunitAbstractionsVersion>2.0.3</XunitAbstractionsVersion>
+        <XunitAnalyzersVersion>0.10.0</XunitAnalyzersVersion>
+        <XunitCombinatorialVersion>1.2.7</XunitCombinatorialVersion>
+        <BumpAssemblyVersionsVersion>1.4.0</BumpAssemblyVersionsVersion>
+        <BumpAssemblyVersionsTargetsPath>..\packages\BumpAssemblyVersions\$(BumpAssemblyVersionsVersion)\build\BumpAssemblyVersions.targets</BumpAssemblyVersionsTargetsPath>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="BumpAssemblyVersions" Version="$(BumpAssemblyVersionsVersion)" PrivateAssets="all">
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup Condition="'$(Configuration)' == 'Debug' And Exists('$(BumpAssemblyVersionsTargetsPath)')">
+        <BumpVersionSpec Include="Version" BuildProviderTemplate="Increment" />
+        <BumpVersionSpec Include="AssemblyVersion" BuildProviderTemplate="Increment" />
+        <BumpVersionSpec Include="FileVersion" BuildProviderTemplate="Increment" />
+        <BumpVersionSpec Include="PackageVersion" BuildProviderTemplate="Increment" />
+    </ItemGroup>
+
+    <!-- ReSharper disable once UnknownProperty -->
+    <ItemGroup Condition="'$(Configuration)' == 'Release' And '$(BumpWhichRelease)' == 'Initial' And Exists('$(BumpAssemblyVersionsTargetsPath)')">
+        <BumpVersionSpec Include="Version" UseUtc="true" MayReset="true" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="AssemblyVersion" UseUtc="true" MayReset="true" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="FileVersion" UseUtc="true" MayReset="true" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="PackageVersion" UseUtc="true" MayReset="true" BuildProviderTemplate="SecondsSinceMidnight" />
+    </ItemGroup>
+
+    <!-- ReSharper disable once UnknownProperty -->
+    <ItemGroup Condition="'$(Configuration)' == 'Release' And ('$(BumpWhichRelease)' == 'Patch' Or '$(BumpWhichRelease)' == '') And Exists('$(BumpAssemblyVersionsTargetsPath)')">
+        <BumpVersionSpec Include="Version" UseUtc="true" MayReset="true" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="AssemblyVersion" UseUtc="true" MayReset="true" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="FileVersion" UseUtc="true" MayReset="true" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="PackageVersion" UseUtc="true" MayReset="true" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+    </ItemGroup>
+
+    <!-- ReSharper disable once UnknownProperty -->
+    <ItemGroup Condition="'$(Configuration)' == 'Release' And '$(BumpWhichRelease)' == 'Minor' And Exists('$(BumpAssemblyVersionsTargetsPath)')">
+        <BumpVersionSpec Include="Version" UseUtc="true" MayReset="true" MinorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="AssemblyVersion" UseUtc="true" MayReset="true" MinorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="FileVersion" UseUtc="true" MayReset="true" MinorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="PackageVersion" UseUtc="true" MayReset="true" MinorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+    </ItemGroup>
+
+    <!-- ReSharper disable once UnknownProperty -->
+    <ItemGroup Condition="'$(Configuration)' == 'Release' And '$(BumpWhichRelease)' == 'Major' And Exists('$(BumpAssemblyVersionsTargetsPath)')">
+        <BumpVersionSpec Include="Version" UseUtc="true" MayReset="true" MajorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="AssemblyVersion" UseUtc="true" MayReset="true" MajorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="FileVersion" UseUtc="true" MayReset="true" MajorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+        <BumpVersionSpec Include="PackageVersion" UseUtc="true" MayReset="true" MajorProviderTemplate="Increment" PatchProviderTemplate="Increment" BuildProviderTemplate="SecondsSinceMidnight" />
+    </ItemGroup>
+
+    <!-- ReSharper disable UnknownProperty -->
+    <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+        <!-- Depending on `PackageOutputPath´ is still the right thing to do, as is `PackageId´.
+     Where we run into difficulty is when we try to deliver into a single location, especially for similarly named packages. -->
+        <Exec Command="if exist &quot;$(PackageOutputPath)$(PackageId).*.nupkg&quot; del /f &quot;$(PackageOutputPath)$(PackageId).*.nupkg&quot;" />
+    </Target>
+    <!-- ReSharper restore UnknownProperty -->
+
+</Project>

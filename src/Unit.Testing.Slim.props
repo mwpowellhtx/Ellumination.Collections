@@ -1,0 +1,24 @@
+<Project>
+
+    <PropertyGroup>
+        <RootNamespace>Ellumination.Collections</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <XunitVersion>2.4.1</XunitVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <XunitFluentlyAssertVersion>1.6.1</XunitFluentlyAssertVersion>
+        <XunitFluentlyAssertExceptionallyVersion>1.0.1</XunitFluentlyAssertExceptionallyVersion>
+    </PropertyGroup>
+
+    <!-- ReSharper disable UnknownProperty -->
+    <ItemGroup>
+        <PackageReference Include="xunit" Version="$(XunitVersion)"/>
+        <PackageReference Include="xunit.fluently.assert" Version="$(XunitFluentlyAssertVersion)"/>
+        <PackageReference Include="xunit.fluently.assert.exceptionally" Version="$(XunitFluentlyAssertExceptionallyVersion)"/>
+    </ItemGroup>
+    <!-- ReSharper restore UnknownProperty -->
+
+</Project>

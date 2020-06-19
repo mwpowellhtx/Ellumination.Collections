@@ -1,0 +1,39 @@
+<Project>
+
+    <PropertyGroup>
+        <RootNamespace>Ellumination.Collections</RootNamespace>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <XunitVersion>2.4.1</XunitVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <XunitFluentlyAssertVersion>1.6.1</XunitFluentlyAssertVersion>
+        <XunitFluentlyAssertExceptionallyVersion>1.0.1</XunitFluentlyAssertExceptionallyVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="xunit" Version="$(XunitVersion)" />
+        <PackageReference Include="xunit.runner.console" Version="$(XunitVersion)">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="xunit.runner.visualstudio" Version="$(XunitVersion)">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty -->
+        <PackageReference Include="xunit.fluently.assert" Version="$(XunitFluentlyAssertVersion)" />
+        <!-- ReSharper disable once UnknownProperty -->
+        <PackageReference Include="xunit.fluently.assert.exceptionally" Version="$(XunitFluentlyAssertExceptionallyVersion)" />
+    </ItemGroup>
+
+</Project>
