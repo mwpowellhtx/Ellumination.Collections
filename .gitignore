@@ -1,0 +1,21 @@
+.vs/
+obj/
+bin/
+packages/
+_ReSharper.Caches/
+
+*.suo
+*.user
+*.nupkg
+*.coverage
+
+# Generally speaking, I want to ignore these, but for a couple of exceptions, such as for Namespace Providers.
+# The only down side to that is that it locks us in to a ReSharper dependency.
+*.DotSettings
+
+*.old/
+!.nuget/
+
+LICENSE.txt
+
+\#*
