@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides the ability to List items in Concurrent manner.</Description>
+        <PackageTags>Collections;IList;List;collection;base;concurrent;concurrency;lock;enter;exit;thread;threading;reader;writer;slim;dispose;enumerator;IEnumerator;add;range;remove;clear;contains;copy;to;is;read;only;at;indexer;index;get</PackageTags>
+        <Version>1.0.0.15430</Version>
+        <FileVersion>1.0.0.15430</FileVersion>
+        <AssemblyVersion>1.0.0.15430</AssemblyVersion>
+        <PackageVersion>1.0.0.15430</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Core.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+</Project>
