@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <RootNamespace>Ellumination.CodeAnalysis.Verifiers</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- TODO: TBD: for now, born out of efforts in Collections; however, this could very easily live in a repo all its own... -->
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.6</TargetFramework>
+        <Version>1.0.1.15537</Version>
+        <FileVersion>1.0.1.15537</FileVersion>
+        <AssemblyVersion>1.0.1.15537</AssemblyVersion>
+        <PackageVersion>1.0.1.15537</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Description>Provides a re-factoring and re-imagining of the Code Fixes elements deployed in the default Analysis and Code Fixes project template. This particular assembly focuses on Code Fixes only as part of that re-factoring effort.</Description>
+        <PackageTags>dotnet;code;analysis;csharp;Roslyn;fix;fixes;helpers;event;arguments;handler;verify;verifier;verifiers;verifying;provider;required;assert;success;language;source;given;expected;diagnostic;diagnostics;allowed;document;project</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard1.6\Ellumination.CodeAnalysis.Verifiers.CodeFixes.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty defined in Directory.Build.props -->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.CodeAnalysis.Verifiers.Diagnostics\Ellumination.CodeAnalysis.Verifiers.Diagnostics.csproj" />
+    </ItemGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+</Project>
