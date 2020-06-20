@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a Set Collection implementation.</Description>
+        <PackageTags>Collections;ISet;IDictionary;enumerable;intersect;poper;superset;subset;of;overlaps;super;sub;set;equal;equals;symetric;except;union;with;is;read;only;key;keys;remove;try;value;values;indexer;index;add;clear;contains;copy;to;count;remove;enumerator;get</PackageTags>
+        <Version>1.0.0.15432</Version>
+        <FileVersion>1.0.0.15432</FileVersion>
+        <AssemblyVersion>1.0.0.15432</AssemblyVersion>
+        <PackageVersion>1.0.0.15432</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Sets.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+</Project>
