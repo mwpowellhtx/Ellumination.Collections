@@ -1,0 +1,51 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <IsPackable>false</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <Version>1.2.1.2592</Version>
+        <AssemblyVersion>1.2.1.2592</AssemblyVersion>
+        <FileVersion>1.2.1.2592</FileVersion>
+    </PropertyGroup>
+
+    <Import Project="..\Unit.Testing.props" />
+
+    <ItemGroup>
+        <Reference Include="netstandard" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty defined in Directory.Build.props -->
+        <PackageReference Include="CodeGeneration.Roslyn" Version="$(CodeGenerationRoslynPackagesVersion)" />
+        <!-- ReSharper disable once UnknownProperty defined in Directory.Build.props -->
+        <PackageReference Include="CodeGeneration.Roslyn.BuildTime" Version="$(CodeGenerationRoslynPackagesVersion)" PrivateAssets="All" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.CodeAnalysis.Verification\Ellumination.CodeAnalysis.Verification.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Analyzers\Ellumination.Collections.Enumerations.Analyzers.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations\Ellumination.Collections.Enumerations.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.ImmutableBitArray\Ellumination.Collections.ImmutableBitArray.csproj" />
+        <ProjectReference Include="..\Ellumination.CodeAnalysis.Verifiers.Diagnostics\Ellumination.CodeAnalysis.Verifiers.Diagnostics.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Attributes\Ellumination.Collections.Enumerations.Attributes.csproj" PrivateAssets="All" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Generators\Ellumination.Collections.Enumerations.Generators.csproj" PrivateAssets="All" />
+    </ItemGroup>
+
+    <!-- Following the template illustrated by RecordGenerator, keeping the Items concerns
+     somewhat separated. This is intentional, and helps to highlight which dependencies are
+     necessary, for what purposes, and when, during the build process, etc. -->
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty should be found in Directory.Build.props -->
+        <DotNetCliToolReference Include="dotnet-codegen" Version="$(CodeGenerationRoslynPackagesVersion)" />
+        <!-- Drawing partially, as reference, from: http://github.com/amis92/RecordGenerator, but only to a point. -->
+        <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
+    </ItemGroup>
+
+</Project>
