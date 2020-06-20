@@ -1,0 +1,20 @@
+﻿<?xml version='1.0'?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+        <id>$id$</id>
+        <title>$id$</title>
+        <version>1.0</version>
+        <authors>Michael W. Powell</authors>
+        <owners>$author$</owners>
+        <projectUrl>http://github.com/mwpowellhtx/Kingdom.Collections</projectUrl>
+        <summary>A simple list based set of Queue extension methods for dotnet.</summary>
+        <description>Provides a simple set of list based extensions for Queue operation.</description>
+        <tags>Collections IList List IEnumerable enqueue dequeue try many item additional count any onto</tags>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <language>en-US</language>
+    </metadata>
+    <files>
+        <file src="bin\$configuration$\$id$.pdb" target="lib\net45" />
+    </files>
+</package>
