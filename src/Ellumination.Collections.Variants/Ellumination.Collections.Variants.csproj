@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a set of features making it possible to emulate C++ Variants for dotnet.</Description>
+        <PackageTags>Collections;IVariant;Variant;ToString;IEquatable;IComparable;Value;object;generic;Type;VariantConfiguration;IVariantConfiguration;configuration;ICollection;collection;add;enumerator;callback;callbacks;item;items</PackageTags>
+        <Version>1.1.1.15433</Version>
+        <FileVersion>1.1.1.15433</FileVersion>
+        <AssemblyVersion>1.1.1.15433</AssemblyVersion>
+        <PackageVersion>1.1.1.15433</PackageVersion>
+    </PropertyGroup>
+
+    <Import Project="..\..\Licensing.props" />
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Variants.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Update="Variant.*.cs">
+            <DependentUpon>Variant.cs</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- TODO: TBD:Referencing $(ProjectFileName) works, however, I am not sure why this one cannot live in the Solution-based Directory.Build.props. -->
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Test.$(MSBuildProjectName)</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+</Project>
