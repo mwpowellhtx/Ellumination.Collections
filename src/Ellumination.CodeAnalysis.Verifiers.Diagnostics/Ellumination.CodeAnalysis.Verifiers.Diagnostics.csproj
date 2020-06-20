@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>netstandard1.6</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a re-factoring and re-imagining of the Diagnostic elements deployed in the Analyzer and Code Fixes project template. This particular assembly focuses primarily on the Diagnostic Analyzers with built-in Roslyn compilation support.</Description>
         <PackageTags>dotnet;code;analysis;csharp;diagnostics;helpers;event;arguments;handlers;verify;verifier;verifiers;verifying;provider;requested;required;analyzer;language;results;compilation;received;Roslyn</PackageTags>
         <Version>1.0.1.15535</Version>
@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
-        <DocumentationFile>bin\$(Configuration)\netstandard1.6\Ellumination.CodeAnalysis.Verifiers.Diagnostics.xml</DocumentationFile>
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.CodeAnalysis.Verifiers.Diagnostics.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

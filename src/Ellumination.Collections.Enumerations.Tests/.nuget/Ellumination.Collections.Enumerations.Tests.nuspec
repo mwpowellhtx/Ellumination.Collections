@@ -16,13 +16,15 @@
         <tags>$tags$</tags>
         <language>en-US</language>
         <dependencies>
-            <dependency id="Ellumination.Collections.Enumerations" version="$elluminationCollectionsEnumerationsVersion$" />
-            <dependency id="Ellumination.Collections.ImmutableBitArray" version="$elluminationCollectionsImmutableBitArrayVersion$" />
-            <!-- ReSharper disable MarkupAttributeTypo -->
-            <dependency id="xunit" version="$xunitVersion$" />
-            <dependency id="xunit.analyzers" version="$xunitAnalyzersVersion$" />
-            <dependency id="xunit.fluently.assert" version="$xunitFluentlyAssertVersion$" />
-            <dependency id="xunit.fluently.assert.exceptionally" version="$xunitFluentlyAssertExceptionallyVersion$" />
+            <group targetFramework="netstandard2.0">
+                <dependency id="Ellumination.Collections.Enumerations" version="$elluminationCollectionsEnumerationsVersion$" />
+                <dependency id="Ellumination.Collections.ImmutableBitArray" version="$elluminationCollectionsImmutableBitArrayVersion$" />
+                <!-- ReSharper disable MarkupAttributeTypo -->
+                <dependency id="xunit" version="$xunitVersion$" />
+                <dependency id="xunit.analyzers" version="$xunitAnalyzersVersion$" />
+                <dependency id="xunit.fluently.assert" version="$xunitFluentlyAssertVersion$" />
+                <dependency id="xunit.fluently.assert.exceptionally" version="$xunitFluentlyAssertExceptionallyVersion$" />
+            </group>
         </dependencies>
     </metadata>
     <files>

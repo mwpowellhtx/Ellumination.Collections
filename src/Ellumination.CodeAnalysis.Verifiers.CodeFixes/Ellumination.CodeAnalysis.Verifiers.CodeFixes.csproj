@@ -10,20 +10,17 @@
     </PropertyGroup>
 
     <PropertyGroup>
-        <TargetFramework>netstandard1.6</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a re-factoring and re-imagining of the Code Fixes elements deployed in the default Analysis and Code Fixes project template. This particular assembly focuses on Code Fixes only as part of that re-factoring effort.</Description>
+        <PackageTags>dotnet;code;analysis;csharp;Roslyn;fix;fixes;helpers;event;arguments;handler;verify;verifier;verifiers;verifying;provider;required;assert;success;language;source;given;expected;diagnostic;diagnostics;allowed;document;project</PackageTags>
         <Version>1.0.1.15537</Version>
         <FileVersion>1.0.1.15537</FileVersion>
         <AssemblyVersion>1.0.1.15537</AssemblyVersion>
         <PackageVersion>1.0.1.15537</PackageVersion>
     </PropertyGroup>
 
-    <PropertyGroup>
-        <Description>Provides a re-factoring and re-imagining of the Code Fixes elements deployed in the default Analysis and Code Fixes project template. This particular assembly focuses on Code Fixes only as part of that re-factoring effort.</Description>
-        <PackageTags>dotnet;code;analysis;csharp;Roslyn;fix;fixes;helpers;event;arguments;handler;verify;verifier;verifiers;verifying;provider;required;assert;success;language;source;given;expected;diagnostic;diagnostics;allowed;document;project</PackageTags>
-    </PropertyGroup>
-
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
-        <DocumentationFile>bin\$(Configuration)\netstandard1.6\Ellumination.CodeAnalysis.Verifiers.CodeFixes.xml</DocumentationFile>
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.CodeAnalysis.Verifiers.CodeFixes.xml</DocumentationFile>
     </PropertyGroup>
 
     <ItemGroup>

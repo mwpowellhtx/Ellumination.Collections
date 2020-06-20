@@ -4,6 +4,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
         <BumpWhichRelease>Patch</BumpWhichRelease>
+        <NoWarn>$(NoWarn);NU5128</NoWarn>
     </PropertyGroup>
 
     <!-- TODO: TBD: this all depends on AArnott's CodeGenRoslyn... -->
@@ -11,7 +12,7 @@
     <PropertyGroup>
         <!-- TODO: TBD: https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference / DevelopmentDependency support for PackageReference -->
         <!-- TODO: TBD: https://github.com/NuGet/Home/issues/4125 / PackageReference should support DevelopmentDependency metadata -->
-        <TargetFramework>netstandard1.6</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Code generator for [FlagsEnumeration]-decorated types. Automatically generates bitwise operator overloads corresponding with your derived Enumeration assets. This package references all required and recommended analyzer packages. See project site for installation instructions and more details.</Description>
         <PackageTags>Collections;Enumeration;Build;Time;bitwise;operator;overload;ones;complement;and;or;exclusive;xor;attribute;generator;flags;code;generator;generation;codegen;codegenerator;codegeneration</PackageTags>
         <FileVersion>1.2.1.15540</FileVersion>
@@ -57,9 +58,9 @@
 
         <PropertyGroup>
             <!-- TODO: TBD: Avoid NuGet version ranges... Expand the ranges to a base version, and * wildcard if necessary. -->
-            <ElluminationCollectionsEnumerationsAttributesVersion>[1.0.3,2)</ElluminationCollectionsEnumerationsAttributesVersion>
-            <ElluminationCollectionsEnumerationsAnalyzersVersion>[1.0.3,2)</ElluminationCollectionsEnumerationsAnalyzersVersion>
-            <ElluminationCollectionsEnumerationsGeneratorsVersion>[1.1.2,2)</ElluminationCollectionsEnumerationsGeneratorsVersion>
+            <ElluminationCollectionsEnumerationsAttributesVersion>1.0.4</ElluminationCollectionsEnumerationsAttributesVersion>
+            <ElluminationCollectionsEnumerationsAnalyzersVersion>1.0.4</ElluminationCollectionsEnumerationsAnalyzersVersion>
+            <ElluminationCollectionsEnumerationsGeneratorsVersion>1.1.3</ElluminationCollectionsEnumerationsGeneratorsVersion>
             <IsDevelopmentDependency>true</IsDevelopmentDependency>
         </PropertyGroup>
 
@@ -83,9 +84,9 @@
             <!-- ReSharper disable once UnknownProperty -->
             <NuspecProperties>$(NuspecProperties);copyright=$(Copyright)</NuspecProperties>
             <NuspecProperties>$(NuspecProperties);developmentDependency=$(IsDevelopmentDependency)</NuspecProperties>
-            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsAttributesVersion=$(ElluminationCollectionsEnumerationsAttributesVersion)</NuspecProperties>
-            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsAnalyzersVersion=$(ElluminationCollectionsEnumerationsAnalyzersVersion)</NuspecProperties>
-            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsGeneratorsVersion=$(ElluminationCollectionsEnumerationsGeneratorsVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);elluminationCollectionsEnumerationsAttributesVersion=$(ElluminationCollectionsEnumerationsAttributesVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);elluminationCollectionsEnumerationsAnalyzersVersion=$(ElluminationCollectionsEnumerationsAnalyzersVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);elluminationCollectionsEnumerationsGeneratorsVersion=$(ElluminationCollectionsEnumerationsGeneratorsVersion)</NuspecProperties>
             <!-- ReSharper disable once UnknownProperty -->
             <NuspecProperties>$(NuspecProperties);codeGenerationRoslynVersion=$(CodeGenerationRoslynPackagesVersion)</NuspecProperties>
         </PropertyGroup>
