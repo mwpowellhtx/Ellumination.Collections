@@ -11,18 +11,18 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a simple set of list based extensions for Queue operation.</Description>
         <PackageTags>Collections;IList;List;IEnumerable;enqueue;dequeue;try;many;item;additional;count;any;onto</PackageTags>
-        <Version>1.1.2.7623</Version>
-        <FileVersion>1.1.2.7623</FileVersion>
-        <AssemblyVersion>1.1.2.7623</AssemblyVersion>
-        <PackageVersion>1.1.2.7623</PackageVersion>
+        <Version>1.1.3.11420</Version>
+        <FileVersion>1.1.3.11420</FileVersion>
+        <AssemblyVersion>1.1.3.11420</AssemblyVersion>
+        <PackageVersion>1.1.3.11420</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
         <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Queues.xml</DocumentationFile>
     </PropertyGroup>
 
-    <ItemGroup>
-        <None Remove="Ellumination.Collections.Queues.nuspec" />
-    </ItemGroup>
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
 
 </Project>

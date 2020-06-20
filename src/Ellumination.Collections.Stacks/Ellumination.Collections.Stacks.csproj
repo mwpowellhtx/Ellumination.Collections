@@ -11,14 +11,18 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a simple set of list based extensions for Stack operation.</Description>
         <PackageTags>Collections;IList;List;IEnumerable;push;pop;many;item;additional;count;any;onto</PackageTags>
-        <Version>1.1.2.7625</Version>
-        <FileVersion>1.1.2.7625</FileVersion>
-        <AssemblyVersion>1.1.2.7625</AssemblyVersion>
-        <PackageVersion>1.1.2.7625</PackageVersion>
+        <Version>1.1.3.11420</Version>
+        <FileVersion>1.1.3.11420</FileVersion>
+        <AssemblyVersion>1.1.3.11420</AssemblyVersion>
+        <PackageVersion>1.1.3.11420</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
         <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Stacks.xml</DocumentationFile>
     </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
 
 </Project>
