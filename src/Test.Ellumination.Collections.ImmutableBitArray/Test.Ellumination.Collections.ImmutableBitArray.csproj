@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <Configurations>Debug</Configurations>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <Version>1.5.1.60</Version>
+        <AssemblyVersion>1.5.1.60</AssemblyVersion>
+        <FileVersion>1.5.1.60</FileVersion>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\Unit.Testing.props" />
+    </ImportGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.Collections.ImmutableBitArray\Ellumination.Collections.ImmutableBitArray.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.Data.SqlClient" Version="4.8.1" />
+    </ItemGroup>
+
+    <!-- ?
+        // Going on a hunch. I do not know why parallelism should be an issue at the moment,
+        // but let's get a handle on that and see whether things do not improve at all.
+        [assembly: CollectionBehavior(DisableTestParallelization = true)]
+    -->
+
+</Project>

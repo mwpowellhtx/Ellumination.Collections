@@ -1,0 +1,6 @@
+{
+  "appDomain": "ifAvailable",
+  "longRunningTestSeconds": 0,
+  "preEnumerateTheories": true,
+  "shadowCopy": true
+}
