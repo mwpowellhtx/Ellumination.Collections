@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <RootNamespace>Ellumination.Collections.Variants</RootNamespace>
+        <Version>1.0.0.17</Version>
+        <FileVersion>1.0.0.17</FileVersion>
+        <AssemblyVersion>1.0.0.17</AssemblyVersion>
+    </PropertyGroup>
+
+    <Import Project="..\Unit.Testing.props" />
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.Collections.Variants\Ellumination.Collections.Variants.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- TODO: TBD:Referencing $(ProjectFileName) works, however, I am not sure why this one cannot live in the Solution-based Directory.Build.props. -->
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+</Project>
