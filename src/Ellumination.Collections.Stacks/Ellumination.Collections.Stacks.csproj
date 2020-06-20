@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a simple set of list based extensions for Stack operation.</Description>
+        <PackageTags>Collections;IList;List;IEnumerable;push;pop;many;item;additional;count;any;onto</PackageTags>
+        <Version>1.1.1.15433</Version>
+        <FileVersion>1.1.1.15433</FileVersion>
+        <AssemblyVersion>1.1.1.15433</AssemblyVersion>
+        <PackageVersion>1.1.1.15433</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Stacks.xml</DocumentationFile>
+    </PropertyGroup>
+
+</Project>
