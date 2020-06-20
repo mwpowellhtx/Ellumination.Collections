@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <RootNamespace>Ellumination.CodeAnalysis.Verifiers</RootNamespace>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- TODO: TBD: for now, born out of efforts in Collections;however, this could very easily live in a repo all its own... -->
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.6</TargetFramework>
+        <Description>Provides a re-factoring and re-imagining of the Diagnostic elements deployed in the Analyzer and Code Fixes project template. This particular assembly focuses primarily on the Diagnostic Analyzers with built-in Roslyn compilation support.</Description>
+        <PackageTags>dotnet;code;analysis;csharp;diagnostics;helpers;event;arguments;handlers;verify;verifier;verifiers;verifying;provider;requested;required;analyzer;language;results;compilation;received;Roslyn</PackageTags>
+        <Version>1.0.1.15535</Version>
+        <FileVersion>1.0.1.15535</FileVersion>
+        <AssemblyVersion>1.0.1.15535</AssemblyVersion>
+        <PackageVersion>1.0.1.15535</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard1.6\Ellumination.CodeAnalysis.Verifiers.Diagnostics.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove=".gitignore" />
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty defined in Directory.Build.props -->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpVersion)" />
+    </ItemGroup>
+
+    <!--<ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Test.Ellumination.Collections.Enumerations.Analyzers</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>-->
+
+</Project>
