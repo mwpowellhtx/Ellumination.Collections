@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>The framework BitArray is helpful but it has a serious flaw in the fact that it is not immutable. This is the primary motivation for working on this package in order to achieve just such an ImmutableBitArray. Reflexive operations can modify an instance but otherwise bitwise operations should yield a wholely new instance.</Description>
+        <PackageTags>immutable;idempotent;bit;bits;array;uint;byte;bytes;bool;IEnumerable;ICollection;IClonable;bitwise;and;or;xor;not;ones;complement;shift;elasticity;none;expansion;contraction;both;shrink;expand</PackageTags>
+        <Version>2.0.1.15511</Version>
+        <FileVersion>2.0.1.15511</FileVersion>
+        <AssemblyVersion>2.0.1.15511</AssemblyVersion>
+        <PackageVersion>2.0.1.15511</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.ImmutableBitArray.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <ItemGroup>
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="ImmutableBitArray.*.cs">
+            <DependentUpon>ImmutableBitArray.cs</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Test.$(MSBuildProjectName)</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+</Project>
