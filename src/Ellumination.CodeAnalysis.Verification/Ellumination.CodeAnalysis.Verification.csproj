@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <!-- TODO: TBD: for now, born out of efforts in Collections; however, this could very easily live in a repo all its own... -->
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <RootNamespace>Ellumination.CodeAnalysis</RootNamespace>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a handful of helpful extension methods for use during verification of Microsoft Roslyn Code Analysis, Code Generation, and so on. The package is intentionally left bereft of specific unit test framework dependencies.</Description>
+        <PackageTags>dotnet;code;analysis;verify;verification;extension;extensions;method;methods;is;has;all;any;zip;base;member;members;param;params;parameter;parameters;exact;syntax;token;tokens;CSharp;predicate;predicates;list;declaration;Roslyn</PackageTags>
+        <Version>1.0.1.15511</Version>
+        <FileVersion>1.0.1.15511</FileVersion>
+        <AssemblyVersion>1.0.1.15511</AssemblyVersion>
+        <PackageVersion>1.0.1.15511</PackageVersion>
+    </PropertyGroup>
+
+    <Import Project="..\..\Licensing.props" />
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.CodeAnalysis.Verification.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty defined in Build properties -->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpVersion)" />
+    </ItemGroup>
+
+</Project>
