@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Version>2.0.0.15514</Version>
+        <FileVersion>2.0.0.15514</FileVersion>
+        <AssemblyVersion>2.0.0.15514</AssemblyVersion>
+        <PackageVersion>2.0.0.15514</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <Description>The framework Enumerations provides a solid baseline of features emulating a Java style enumeration structure for .NET. Simple Ordinal based Enumerations are supported, as are more complex Flags-like Bitwise Enumerations.</Description>
+        <PackageTags>Enumerations;Enumeration;enumerated;values;Ordinal;Bitwise;Java;dotnet;bitwise;shift;left;right;and;or;xor;not;ones;twos;complement;Flags;Boolean;bool;ICollection;ICloneable</PackageTags>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Enumerations.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.Collections.ImmutableBitArray\Ellumination.Collections.ImmutableBitArray.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild-reserved-and-well-known-properties -->
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>Test.$(MSBuildProjectName).Tests</_Parameter1>
+        </AssemblyAttribute>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>$(MSBuildProjectName).Tests</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+</Project>
