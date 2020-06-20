@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- TODO: TBD: refactor me to a directory builds potentially... -->
+        <PackageProjectUrl>https://github.com/mwpowellhtx/Ellumination.Collections</PackageProjectUrl>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides a simple set of list based extensions for Double-ended Queue, or Deque, operation.</Description>
+        <PackageTags>Collections;IDeque;Deque;IEnumerable;enqueue;dequeue;front;back;try;many;item;additional;count;any;onto</PackageTags>
+        <Version>1.2.1.15430</Version>
+        <FileVersion>1.2.1.15430</FileVersion>
+        <AssemblyVersion>1.2.1.15430</AssemblyVersion>
+        <PackageVersion>1.2.1.15430</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Deques.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Ellumination.Collections.Deques.csproj.DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+            <_Parameter1>Test.Ellumination.Collections.DataStructures</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+</Project>
