@@ -1,0 +1,101 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <!-- TODO: TBD: this all depends on AArnott's CodeGenRoslyn... -->
+    <!-- TODO: TBD: should consider migrating to my CGR, and do the resolution on the whole versioning thing while we're there... -->
+    <PropertyGroup>
+        <!-- TODO: TBD: https://github.com/NuGet/Home/wiki/DevelopmentDependency-support-for-PackageReference / DevelopmentDependency support for PackageReference -->
+        <!-- TODO: TBD: https://github.com/NuGet/Home/issues/4125 / PackageReference should support DevelopmentDependency metadata -->
+        <TargetFramework>netstandard1.6</TargetFramework>
+        <Description>Code generator for [FlagsEnumeration]-decorated types. Automatically generates bitwise operator overloads corresponding with your derived Enumeration assets. This package references all required and recommended analyzer packages. See project site for installation instructions and more details.</Description>
+        <PackageTags>Collections;Enumeration;Build;Time;bitwise;operator;overload;ones;complement;and;or;exclusive;xor;attribute;generator;flags;code;generator;generation;codegen;codegenerator;codegeneration</PackageTags>
+        <FileVersion>1.2.1.15540</FileVersion>
+        <AssemblyVersion>1.2.1.15540</AssemblyVersion>
+        <PackageVersion>1.2.1.15540</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <NuGetSpecificationFilePath>.nuget\$(MSBuildProjectName).nuspec</NuGetSpecificationFilePath>
+        <NuspecFile>$(NuGetSpecificationFilePath)</NuspecFile>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(NuGetSpecificationFilePath)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- We do need to leave the project connection there because the projects are connected. -->
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Attributes\Ellumination.Collections.Enumerations.Attributes.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Analyzers\Ellumination.Collections.Enumerations.Analyzers.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Generators\Ellumination.Collections.Enumerations.Generators.csproj" />
+    </ItemGroup>
+
+    <!-- ReSharper disable UnknownProperty -->
+    <ItemGroup>
+        <PackageReference Include="CodeGeneration.Roslyn.BuildTime" Version="$(CodeGenerationRoslynPackagesVersion)" />
+    </ItemGroup>
+
+    <!-- ReSharper restore UnknownProperty -->
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
+
+        <PropertyGroup>
+            <NuGetPackageSummary>Enumerations unit test framework.</NuGetPackageSummary>
+            <!-- We do this because `csproj´ specifications are different from those of `nuspec´. -->
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecTags>$([System.String]::Copy('$(PackageTags)').Replace(';', ' '))</NuspecTags>
+        </PropertyGroup>
+
+        <PropertyGroup>
+            <!-- TODO: TBD: Avoid NuGet version ranges... Expand the ranges to a base version, and * wildcard if necessary. -->
+            <ElluminationCollectionsEnumerationsAttributesVersion>[1.0.3,2)</ElluminationCollectionsEnumerationsAttributesVersion>
+            <ElluminationCollectionsEnumerationsAnalyzersVersion>[1.0.3,2)</ElluminationCollectionsEnumerationsAnalyzersVersion>
+            <ElluminationCollectionsEnumerationsGeneratorsVersion>[1.1.2,2)</ElluminationCollectionsEnumerationsGeneratorsVersion>
+            <IsDevelopmentDependency>true</IsDevelopmentDependency>
+        </PropertyGroup>
+
+        <PropertyGroup>
+            <NuspecProperties>$(NuspecProperties);id=$(AssemblyName)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);config=$(Configuration)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);version=$(PackageVersion)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);description=$(Description)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);tags=$(NuspecTags)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);authors=$(Authors)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);projectUrl=$(PackageProjectUrl)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);summary=$(NuGetPackageSummary)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);licenseFile=$(InternalLicenseFileName)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);requireLicenseAcceptance=$(PackageRequireLicenseAcceptance)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);copyright=$(Copyright)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);developmentDependency=$(IsDevelopmentDependency)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsAttributesVersion=$(ElluminationCollectionsEnumerationsAttributesVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsAnalyzersVersion=$(ElluminationCollectionsEnumerationsAnalyzersVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);ElluminationCollectionsEnumerationsGeneratorsVersion=$(ElluminationCollectionsEnumerationsGeneratorsVersion)</NuspecProperties>
+            <!-- ReSharper disable once UnknownProperty -->
+            <NuspecProperties>$(NuspecProperties);codeGenerationRoslynVersion=$(CodeGenerationRoslynPackagesVersion)</NuspecProperties>
+        </PropertyGroup>
+
+        <Message Text="NuspecFile: $(NuspecFile)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+
+        <Message Text="NuspecTags: $(NuspecTags)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+
+        <Message Text="NuspecProperties: $(NuspecProperties)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+
+    </Target>
+
+</Project>

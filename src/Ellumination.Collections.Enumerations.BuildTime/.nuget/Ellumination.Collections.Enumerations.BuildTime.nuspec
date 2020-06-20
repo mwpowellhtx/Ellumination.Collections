@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>$id$</id>
+    <title>$id$</title>
+    <version>$version$</version>
+    <authors>$authors$</authors>
+    <owners>$authors$</owners>
+    <copyright>$copyright$</copyright>
+    <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+    <license type="file">$licenseFile$</license>
+    <projectUrl>$projectUrl$</projectUrl>
+    <description>$description$</description>
+    <tags>$tags$</tags>
+    <developmentDependency>$developmentDependency$</developmentDependency>
+    <dependencies>
+      <group targetFramework=".NETStandard1.6">
+        <dependency id="CodeGeneration.Roslyn.BuildTime" version="$codeGenerationRoslynVersion$" />
+        <dependency id="Ellumination.Collections.Enumerations.Attributes" version="$elluminationCollectionsEnumerationsAttributesVersion$" />
+        <dependency id="Ellumination.Collections.Enumerations.Analyzers" version="$elluminationCollectionsEnumerationsAnalyzersVersion$" />
+        <dependency id="Ellumination.Collections.Enumerations.Generators" version="$elluminationCollectionsEnumerationsGeneratorsVersion$" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <!-- ReSharper disable once MarkupAttributeTypo -->
+    <file src="..\bin\$config$\netstandard1.6\$licenseFile$" />
+  </files>
+</package>
