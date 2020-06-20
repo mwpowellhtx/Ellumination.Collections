@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <Deterministic>false</Deterministic>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard1.6</TargetFramework>
+        <Description>Provides the [FlagsEnumeration] attribute for use when signaling when bitwise operators and so forth are to be auto generated at build time.</Description>
+        <PackageTags>Enumerations;Enumeration;enumerated;values;Ordinal;Bitwise;Java;dotnet;bitwise;shift;left;right;and;or;xor;not;ones;twos;complement;Flags;attribute;Boolean;bool;ICollection;ICloneable;Roslyn;Analyzer;Analyzers;Code;Fix;Fixes</PackageTags>
+        <Version>1.0.3.15535</Version>
+        <FileVersion>1.0.3.15535</FileVersion>
+        <AssemblyVersion>1.0.3.15535</AssemblyVersion>
+        <PackageVersion>1.0.3.15535</PackageVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard1.6\Ellumination.Collections.Enumerations.Attributes.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <!-- ReSharper disable UnknownProperty -->
+    <ItemGroup>
+        <PackageReference Include="CodeGeneration.Roslyn.Attributes" Version="$(CodeGenerationRoslynPackagesVersion)" />
+    </ItemGroup>
+    <!-- ReSharper restore UnknownProperty -->
+
+</Project>
