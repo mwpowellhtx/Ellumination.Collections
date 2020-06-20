@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <Version>1.0.1.2601</Version>
+        <AssemblyVersion>1.0.1.2601</AssemblyVersion>
+        <FileVersion>1.0.1.2601</FileVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- ReSharper disable once UnknownProperty defined in Directory.Build.props -->
+        <PackageReference Include="Microsoft.CodeAnalysis.CSharp.Workspaces" Version="$(MicrosoftCodeAnalysisCSharpVersion)" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.CodeAnalysis.Verifiers.CodeFixes\Ellumination.CodeAnalysis.Verifiers.CodeFixes.csproj" />
+        <ProjectReference Include="..\Ellumination.CodeAnalysis.Verifiers.Diagnostics\Ellumination.CodeAnalysis.Verifiers.Diagnostics.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Analyzers\Ellumination.Collections.Enumerations.Analyzers.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations.Attributes\Ellumination.Collections.Enumerations.Attributes.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations\Ellumination.Collections.Enumerations.csproj" />
+        <ProjectReference Include="..\Ellumination.Collections.ImmutableBitArray\Ellumination.Collections.ImmutableBitArray.csproj" />
+    </ItemGroup>
+
+    <Import Project="..\Unit.Testing.props" />
+
+</Project>
