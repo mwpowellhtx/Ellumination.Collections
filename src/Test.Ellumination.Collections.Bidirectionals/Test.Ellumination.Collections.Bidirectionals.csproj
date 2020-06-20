@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp2.1</TargetFramework>
+        <FileVersion>1.1.10.17591</FileVersion>
+        <AssemblyVersion>1.1.10.17591</AssemblyVersion>
+        <PackageVersion>1.1.10.17591</PackageVersion>
+    </PropertyGroup>
+
+    <Import Project="..\Unit.Testing.props" />
+
+    <ItemGroup>
+        <None Remove="Test.Ellumination.Collections.Bidirectionals.csproj.DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.Collections.Bidirectionals\Ellumination.Collections.Bidirectionals.csproj" />
+    </ItemGroup>
+
+</Project>
