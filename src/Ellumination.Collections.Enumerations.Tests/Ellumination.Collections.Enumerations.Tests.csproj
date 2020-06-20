@@ -1,0 +1,98 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Enumerations tests framework is provided as an NUnit based framework sufficient to exercise the majority of boilerplate issues concerning both Ordinal as well as Bitwise Enumerations.</Description>
+        <PackageTags>Enumerations;Enumeration;enumerated;values;Ordinal;Bitwise;Java;dotnet;bitwise;shift;left;right;and;or;xor;not;ones;twos;complement;Flags;Boolean;bool;ICollection;ICloneable;xUnit;framework;unit;tests;testing;base;boilerplate</PackageTags>
+        <Version>2.0.0.15517</Version>
+        <FileVersion>2.0.0.15517</FileVersion>
+        <AssemblyVersion>2.0.0.15517</AssemblyVersion>
+        <PackageVersion>2.0.0.15517</PackageVersion>
+        <!--<BumpMajorRelease>true</BumpMajorRelease>-->
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <!-- Several key points here:
+         1) Apparently some projects, i.e. with xunit references, are no longer packable by default.
+         2) Additionally, we must also relay additional details into a custom Nuspec file.
+         3) Also note the appropriate timing of the 'SetNuspecProperties' Target. -->
+        <NuspecFilePath>.nuget\$(MSBuildProjectName).nuspec</NuspecFilePath>
+        <NuspecFile>$(NuspecFilePath)</NuspecFile>
+        <IsPackable>true</IsPackable>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Enumerations.Tests.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="$(NuspecFilePath)" />
+        <None Remove="$(ProjectFileName).DotSettings" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Ellumination.Collections.Enumerations\Ellumination.Collections.Enumerations.csproj" />
+    </ItemGroup>
+
+    <ImportGroup>
+        <Import Project="..\Unit.Testing.Slim.props" />
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+    <ItemGroup>
+        <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+            <_Parameter1>Test.$(MSBuildProjectName)</_Parameter1>
+        </AssemblyAttribute>
+    </ItemGroup>
+
+    <PropertyGroup>
+        <!-- Which, revisit this one anticipating version bump... -->
+        <ElluminationCollectionsEnumerationsVersion>2.0</ElluminationCollectionsEnumerationsVersion>
+        <ElluminationCollectionsImmutableBitArrayVersion>2.0.1</ElluminationCollectionsImmutableBitArrayVersion>
+    </PropertyGroup>
+
+    <!-- TODO: TBD: could potentially capture some of these bits in a separate build properties, for things like core properties... -->
+    <!-- Disable once to make it abundantly clear which properties are defined elsewhere in the build pipeline. -->
+    <Target Name="SetNuspecProperties" BeforeTargets="GenerateNuspec">
+        <PropertyGroup>
+            <NuGetPackageSummary>Enumerations unit test framework.</NuGetPackageSummary>
+            <!-- We do this because 'csproj' specifications are different from those of 'nuspec'. -->
+            <NuspecTags>$([System.String]::Copy('$(PackageTags)').Replace(';', ' '))</NuspecTags>
+        </PropertyGroup>
+
+        <!-- ReSharper disable UnknownProperty -->
+        <PropertyGroup>
+            <!-- While we can do it this way, a better way may be to arrange for item groups. -->
+            <NuspecProperties>$(NuspecProperties);id=$(AssemblyName)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);config=$(Configuration)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);version=$(PackageVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);description=$(Description)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);tags=$(NuspecTags)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);authors=$(Authors)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);projectUrl=$(PackageProjectUrl)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);summary=$(NuGetPackageSummary)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);copyright=$(Copyright)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);licenseFile=$(InternalLicenseFileName)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);requireLicenseAcceptance=$(PackageRequireLicenseAcceptance)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);elluminationCollectionsEnumerationsVersion=$(ElluminationCollectionsEnumerationsVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);elluminationCollectionsImmutableBitArrayVersion=$(ElluminationCollectionsImmutableBitArrayVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);xunitVersion=$(XunitVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);xunitAnalyzersVersion=$(XunitAnalyzersVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);xunitFluentlyAssertVersion=$(XunitFluentlyAssertVersion)</NuspecProperties>
+            <NuspecProperties>$(NuspecProperties);xunitFluentlyAssertExceptionallyVersion=$(XunitFluentlyAssertExceptionallyVersion)</NuspecProperties>
+        </PropertyGroup>
+        <!-- ReSharper restore UnknownProperty -->
+
+        <Message Text="NuspecFile: $(NuspecFile)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+        <Message Text="NuspecTags: $(NuspecTags)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+        <Message Text="NuspecProperties: $(NuspecProperties)" Importance="high" Condition="'$(Configuration)' == 'Debug'" />
+    </Target>
+
+</Project>

@@ -1,0 +1,35 @@
+<?xml version='1.0'?>
+<package xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <metadata xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+        <id>$id$</id>
+        <title>$id$</title>
+        <version>$version$</version>
+        <authors>$authors$</authors>
+        <owners>$authors$</owners>
+        <copyright>$copyright$</copyright>
+        <requireLicenseAcceptance>$requireLicenseAcceptance$</requireLicenseAcceptance>
+        <license type="file">$licenseFile$</license>
+        <projectUrl>$projectUrl$</projectUrl>
+        <summary>$summary$</summary>
+        <description>$description$</description>
+        <tags>$tags$</tags>
+        <language>en-US</language>
+        <dependencies>
+            <dependency id="Ellumination.Collections.Enumerations" version="$elluminationCollectionsEnumerationsVersion$" />
+            <dependency id="Ellumination.Collections.ImmutableBitArray" version="$elluminationCollectionsImmutableBitArrayVersion$" />
+            <!-- ReSharper disable MarkupAttributeTypo -->
+            <dependency id="xunit" version="$xunitVersion$" />
+            <dependency id="xunit.analyzers" version="$xunitAnalyzersVersion$" />
+            <dependency id="xunit.fluently.assert" version="$xunitFluentlyAssertVersion$" />
+            <dependency id="xunit.fluently.assert.exceptionally" version="$xunitFluentlyAssertExceptionallyVersion$" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="..\bin\$config$\netstandard2.0\$id$.dll" target="lib\netstandard2.0" />
+        <file src="..\bin\$config$\netstandard2.0\$id$.pdb" target="lib\netstandard2.0" />
+        <file src="..\bin\$config$\netstandard2.0\$id$.xml" target="lib\netstandard2.0" />
+        <file src="..\bin\$config$\netstandard2.0\$licenseFile$" />
+        <!--<file src="bin\$configuration$\$id$.pdb" target="lib\net462" />-->
+    </files>
+</package>
