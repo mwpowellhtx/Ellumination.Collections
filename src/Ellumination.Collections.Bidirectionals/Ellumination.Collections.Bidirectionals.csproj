@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+        <BumpWhichRelease>Patch</BumpWhichRelease>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <Description>Provides the ability to more intuitively connect Parent-Child relationships via Callback methods.</Description>
+        <PackageTags>Collections;IList;List;IDictionary;Dictionary;key;value;pair;callback;delegate;bidirectionals;bidirectional;add;added;adding;remove;removed;removing;item;event;events;handler;handlers;parent;child;children;to;from</PackageTags>
+        <Version>1.2.0.15430</Version>
+        <FileVersion>1.2.0.15430</FileVersion>
+        <AssemblyVersion>1.2.0.15430</AssemblyVersion>
+        <PackageVersion>1.2.0.15430</PackageVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <None Remove="Ellumination.Collections.Bidirectionals.csproj.DotSettings" />
+    </ItemGroup>
+
+    <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
+        <DocumentationFile>bin\$(Configuration)\netstandard2.0\Ellumination.Collections.Bidirectionals.xml</DocumentationFile>
+    </PropertyGroup>
+
+    <ImportGroup>
+        <Import Project="..\..\Licensing.props" />
+    </ImportGroup>
+
+</Project>
