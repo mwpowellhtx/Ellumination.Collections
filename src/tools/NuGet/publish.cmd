@@ -78,6 +78,18 @@ set concurrent_list_projects=Ellumination.Collections.ConcurrentList
 
 :parse_args
 
+:set_drive_letter
+if /i "%1" equ "--drive-letter" (
+    set drive=%2
+    shift
+    goto :next_arg
+)
+if /i "%1" equ "--drive" (
+    set drive=%2
+    shift
+    goto :next_arg
+)
+
 :set_destination
 if /i "%1" equ "--nuget" (
     set destination=nuget
@@ -186,6 +198,7 @@ if /i "%1" equ "--bidirectional" (
     goto :next_arg
 )
 
+:add_core_projects
 if /i "%1" equ "--all-collections-core" (
     if /i "%projects%" equ "" (
         set projects=%collections_core_projects%
@@ -194,6 +207,7 @@ if /i "%1" equ "--all-collections-core" (
     )
 )
 
+:add_deque_projects
 if /i "%1" equ "--deques" (
     if /i "%projects%" equ "" (
         set projects=%deques_projects%
@@ -202,6 +216,7 @@ if /i "%1" equ "--deques" (
     )
 )
 
+:add_sets_projects
 if /i "%1" equ "--sets" (
     if /i "%projects%" equ "" (
         set projects=%set_projects%
@@ -210,6 +225,21 @@ if /i "%1" equ "--sets" (
     )
 )
 
+:add_concurrent_list_projects
+if /i "%1" equ "--concur" (
+    if /i "%projects%" equ "" (
+        set projects=%concurrent_list_projects%
+    ) else (
+        set projects=%projects%%delim%%concurrent_list_projects%
+    )
+)
+if /i "%1" equ "--concurrent" (
+    if /i "%projects%" equ "" (
+        set projects=%concurrent_list_projects%
+    ) else (
+        set projects=%projects%%delim%%concurrent_list_projects%
+    )
+)
 if /i "%1" equ "--concurrent-lists" (
     if /i "%projects%" equ "" (
         set projects=%concurrent_list_projects%
@@ -294,7 +324,8 @@ set xcopy_exe=xcopy.exe
 set nuget_exe=NuGet.exe
 
 set nupkg_ext=.nupkg
-set publish_local_dir=G:\Dev\NuGet\local\packages
+if "%publish_local_drive%" == "" set publish_local_drive=F:
+set publish_local_dir=%publish_local_drive%\Dev\NuGet\local\packages
 
 rem Expecting NuGet to be found in the System Path.
 set nuget_api_src=https://api.nuget.org/v3/index.json
