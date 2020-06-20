@@ -49,6 +49,10 @@ set collections_projects=Ellumination.Collections.Bidirectionals
 set collections_projects=%collections_projects%%delim%Ellumination.Collections.Stacks
 set collections_projects=%collections_projects%%delim%Ellumination.Collections.Queues
 set collections_projects=%collections_projects%%delim%Ellumination.Collections.Deques
+rem Setup Stacks Projects
+set stacks_projects=Ellumination.Collections.Stacks
+rem Setup Queues Projects
+set queues_projects=Ellumination.Collections.Queues
 rem Setup Deques Projects
 set deques_projects=Ellumination.Collections.Deques
 rem Setup Bit Array Projects
@@ -204,6 +208,24 @@ if /i "%1" equ "--all-collections-core" (
         set projects=%collections_core_projects%
     ) else (
         set projects=%projects%%delim%%collections_core_projects%
+    )
+)
+
+:add_stack_projects
+if /i "%1" equ "--stacks" (
+    if /i "%projects%" equ "" (
+        set projects=%stacks_projects%
+    ) else (
+        set projects=%projects%%delim%%stacks_projects%
+    )
+)
+
+:add_queue_projects
+if /i "%1" equ "--queues" (
+    if /i "%projects%" equ "" (
+        set projects=%queues_projects%
+    ) else (
+        set projects=%projects%%delim%%queues_projects%
     )
 )
 
