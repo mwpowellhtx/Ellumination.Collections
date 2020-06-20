@@ -6,13 +6,13 @@ I am available to deliver talks on our Enumerations as well as general Collectio
 
 The following are the currently deployed packages for our Collections projects.
 
-[![ImmutableBitArray package](https://img.shields.io/nuget/v/Kingdom.Collections.ImmutableBitArray.svg?label=Kingdom.Collections.ImmutableBitArray%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.ImmutableBitArray)
-[![Enumerations package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.svg?label=Kingdom.Collections.Enumerations%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations)
-[![Enumerations Tests package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.Tests.svg?label=Kingdom.Collections.Enumerations.Tests%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations.Tests)
-[![Enumerations Attributes package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.Attributes.svg?label=Kingdom.Collections.Enumerations.Attributes%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations.Attributes)
-[![Enumerations Analyzers package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.Analyzers.svg?label=Kingdom.Collections.Enumerations.Analyzers%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations.Analyzers)
-[![Enumerations Generators package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.Generators.svg?label=Kingdom.Collections.Enumerations.Generators%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations.Generators)
-[![Enumerations BuildTime package](https://img.shields.io/nuget/v/Kingdom.Collections.Enumerations.BuildTime.svg?label=Kingdom.Collections.Enumerations.BuildTime%20NuGet%20Package)](https://nuget.org/packages/Kingdom.Collections.Enumerations.BuildTime)
+[![ImmutableBitArray package](https://img.shields.io/nuget/v/Ellumination.Collections.ImmutableBitArray.svg?label=Ellumination.Collections.ImmutableBitArray%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.ImmutableBitArray)
+[![Enumerations package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.svg?label=Ellumination.Collections.Enumerations%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations)
+[![Enumerations Tests package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Tests.svg?label=Ellumination.Collections.Enumerations.Tests%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Tests)
+[![Enumerations Attributes package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Attributes.svg?label=Ellumination.Collections.Enumerations.Attributes%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Attributes)
+[![Enumerations Analyzers package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Analyzers.svg?label=Ellumination.Collections.Enumerations.Analyzers%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Analyzers)
+[![Enumerations Generators package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Generators.svg?label=Ellumination.Collections.Enumerations.Generators%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Generators)
+[![Enumerations BuildTime package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.BuildTime.svg?label=Ellumination.Collections.Enumerations.BuildTime%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.BuildTime)
 
 We will append additional Collections shields over time.
 
@@ -24,7 +24,7 @@ For lack of a better name, we opted to rename the suite *"Collections"*, which i
 
 ### Bidirectionals Refactored
 
-We refactored the `BidirectionalList` to the `Kingdom.Collections.Generic` namespace instead of `Kingdom.Collections` where it was before.
+We refactored the `BidirectionalList` to the `Ellumination.Collections.Generic` namespace instead of `Ellumination.Collections` where it was before.
 
 We also added a `BidirectionalDictionary` in addition to the `BidirectionalList`. This operates along similar lines as the list except that your *Add* and *Remove* callbacks accept both a *key* as well as the *value*.
 
@@ -44,7 +44,7 @@ We wanted to support collections of [Java Enum](http://docs.oracle.com/javase/7/
 
 We decided to host our `Enumerations` framework as part of the `Collections` suite because we utilize `ImmutableBitArray` for [`FlagsAttribute`](https://docs.microsoft.com/en-us/dotnet/api/system.flagsattribute) style `Enumerations`.
 
-This version of the framework saw a major recasting of the framework in order to better support not only [*Keyed* `Enumerations`](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.Collections.Enumerations/Keyed/Enumerations.Keyed.Derived.cs), i.e. for [`Ordinal`](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.Collections.Enumerations/Keyed/Ordinals/Enumerations.Ordinal.cs) as well as [`Flags` (*Bitwise*)](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.Collections.Enumerations/Keyed/Flags/Enumerations.Flags.Ctors.cs) style applications, but also [*Unkeyed* `Enumerations`](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.Collections.Enumerations/Unkeyed/Enumerations.Unkeyed.Derived.cs). This involved fundamental refactoring of the assets involved, and we think we have a much stronger, more concice implementation as a result. This is reflected not only in the framework itself, but the benefits also work out very nicely in terms of the unit testing involved.
+This version of the framework saw a major recasting of the framework in order to better support not only [*Keyed* `Enumerations`](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.Collections.Enumerations/Keyed/Enumerations.Keyed.Derived.cs), i.e. for [`Ordinal`](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.Collections.Enumerations/Keyed/Ordinals/Enumerations.Ordinal.cs) as well as [`Flags` (*Bitwise*)](http://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.Collections.Enumerations/Keyed/Flags/Enumerations.Flags.Ctors.cs) style applications, but also [*Unkeyed* `Enumerations`](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.Collections.Enumerations/Unkeyed/Enumerations.Unkeyed.Derived.cs). This involved fundamental refactoring of the assets involved, and we think we have a much stronger, more concice implementation as a result. This is reflected not only in the framework itself, but the benefits also work out very nicely in terms of the unit testing involved.
 
 ### Enumeration Unit Testing
 
@@ -66,9 +66,9 @@ At the time of this writing, *CodeGeneration.Roslyn* integration nuances were no
 
 ### .NET Code Analysis, Code Fixes, and other fallout
 
-Our pursuit of the *Analyzer and Code Fix* extensibility solution also led me to discover a couple of areas that deserved serious refactoring, thereby improving upon the boilerplate project template. Chiefly, [*Analyzer Diagnostics*](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.CodeAnalysis.Verifiers.Diagnostics) and [*Code Fixes*](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.CodeAnalysis.Verifiers.CodeFixes), their helpers, etc, deserve their own projects with separately delivered packages. This is especially true for code generation unit testing, which depends solely upon the analyzer diagnostics alone, wholely separate from the code fixes themselves.
+Our pursuit of the *Analyzer and Code Fix* extensibility solution also led me to discover a couple of areas that deserved serious refactoring, thereby improving upon the boilerplate project template. Chiefly, [*Analyzer Diagnostics*](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.CodeAnalysis.Verifiers.Diagnostics) and [*Code Fixes*](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.CodeAnalysis.Verifiers.CodeFixes), their helpers, etc, deserve their own projects with separately delivered packages. This is especially true for code generation unit testing, which depends solely upon the analyzer diagnostics alone, wholely separate from the code fixes themselves.
 
-In addition, there were [also a couple of extension methods](/mwpowellhtx/Kingdom.Collections/tree/master/src/Kingdom.CodeAnalysis.Verification) that We found helpful to more *fluently* verify that the code is properly generated. We intentionally steered clear of assuming any dependencies on [*xunit*](/xunit/xunit), or any other, test framework, at this level. Although, we left things fairly open to inject assertions via extension method *predicates*.
+In addition, there were [also a couple of extension methods](https://github.com/mwpowellhtx/Ellumination.Collections/tree/master/src/Ellumination.CodeAnalysis.Verification) that We found helpful to more *fluently* verify that the code is properly generated. We intentionally steered clear of assuming any dependencies on [*xunit*](/xunit/xunit), or any other, test framework, at this level. Although, we left things fairly open to inject assertions via extension method *predicates*.
 
 Ultimately, we will likely reposition these in a repository dedicated to this notion, but for the time being the projects live here at the point of discovery, at least until the immediate dust has settled a bit.
 
