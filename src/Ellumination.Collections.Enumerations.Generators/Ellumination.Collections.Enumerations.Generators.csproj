@@ -13,10 +13,10 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides the build time generators that respond to the [FlagsEnumeration] partial class attribute.</Description>
         <PackageTags>Enumerations;Enumeration;enumerated;generator;generators;values;Ordinal;Bitwise;Java;dotnet;bitwise;shift;left;right;and;or;xor;not;ones;twos;complement;Flags;Boolean;bool;ICollection;ICloneable;Roslyn;Analyzer;Analyzers;Code;Fix;Fixes</PackageTags>
-        <Version>1.1.2.15535</Version>
-        <FileVersion>1.1.2.15535</FileVersion>
-        <AssemblyVersion>1.1.2.15535</AssemblyVersion>
-        <PackageVersion>1.1.2.15535</PackageVersion>
+        <Version>1.1.3.7611</Version>
+        <FileVersion>1.1.3.7611</FileVersion>
+        <AssemblyVersion>1.1.3.7611</AssemblyVersion>
+        <PackageVersion>1.1.3.7611</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">

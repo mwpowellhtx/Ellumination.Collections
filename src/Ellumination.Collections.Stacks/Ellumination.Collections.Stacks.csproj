@@ -11,10 +11,10 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a simple set of list based extensions for Stack operation.</Description>
         <PackageTags>Collections;IList;List;IEnumerable;push;pop;many;item;additional;count;any;onto</PackageTags>
-        <Version>1.1.1.15433</Version>
-        <FileVersion>1.1.1.15433</FileVersion>
-        <AssemblyVersion>1.1.1.15433</AssemblyVersion>
-        <PackageVersion>1.1.1.15433</PackageVersion>
+        <Version>1.1.2.7625</Version>
+        <FileVersion>1.1.2.7625</FileVersion>
+        <AssemblyVersion>1.1.2.7625</AssemblyVersion>
+        <PackageVersion>1.1.2.7625</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">

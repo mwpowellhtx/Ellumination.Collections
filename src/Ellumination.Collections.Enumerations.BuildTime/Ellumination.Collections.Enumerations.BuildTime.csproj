@@ -15,9 +15,9 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Code generator for [FlagsEnumeration]-decorated types. Automatically generates bitwise operator overloads corresponding with your derived Enumeration assets. This package references all required and recommended analyzer packages. See project site for installation instructions and more details.</Description>
         <PackageTags>Collections;Enumeration;Build;Time;bitwise;operator;overload;ones;complement;and;or;exclusive;xor;attribute;generator;flags;code;generator;generation;codegen;codegenerator;codegeneration</PackageTags>
-        <FileVersion>1.2.1.15540</FileVersion>
-        <AssemblyVersion>1.2.1.15540</AssemblyVersion>
-        <PackageVersion>1.2.1.15540</PackageVersion>
+        <FileVersion>1.2.2.7630</FileVersion>
+        <AssemblyVersion>1.2.2.7630</AssemblyVersion>
+        <PackageVersion>1.2.2.7630</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup>

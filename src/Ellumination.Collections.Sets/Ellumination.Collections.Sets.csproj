@@ -11,10 +11,10 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a Set Collection implementation.</Description>
         <PackageTags>Collections;ISet;IDictionary;enumerable;intersect;poper;superset;subset;of;overlaps;super;sub;set;equal;equals;symetric;except;union;with;is;read;only;key;keys;remove;try;value;values;indexer;index;add;clear;contains;copy;to;count;remove;enumerator;get</PackageTags>
-        <Version>1.0.0.15432</Version>
-        <FileVersion>1.0.0.15432</FileVersion>
-        <AssemblyVersion>1.0.0.15432</AssemblyVersion>
-        <PackageVersion>1.0.0.15432</PackageVersion>
+        <Version>1.0.1.7625</Version>
+        <FileVersion>1.0.1.7625</FileVersion>
+        <AssemblyVersion>1.0.1.7625</AssemblyVersion>
+        <PackageVersion>1.0.1.7625</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">

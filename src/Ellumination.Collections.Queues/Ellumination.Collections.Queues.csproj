@@ -11,10 +11,10 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides a simple set of list based extensions for Queue operation.</Description>
         <PackageTags>Collections;IList;List;IEnumerable;enqueue;dequeue;try;many;item;additional;count;any;onto</PackageTags>
-        <Version>1.1.1.15430</Version>
-        <FileVersion>1.1.1.15430</FileVersion>
-        <AssemblyVersion>1.1.1.15430</AssemblyVersion>
-        <PackageVersion>1.1.1.15430</PackageVersion>
+        <Version>1.1.2.7623</Version>
+        <FileVersion>1.1.2.7623</FileVersion>
+        <AssemblyVersion>1.1.2.7623</AssemblyVersion>
+        <PackageVersion>1.1.2.7623</PackageVersion>
     </PropertyGroup>
 
     <PropertyGroup Condition="'$(Platform)' == 'AnyCPU'">
