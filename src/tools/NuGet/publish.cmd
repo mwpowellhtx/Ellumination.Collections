@@ -42,6 +42,8 @@ set all_projects=%all_projects%%delim%Ellumination.Collections.Stacks
 set all_projects=%all_projects%%delim%Ellumination.Collections.Queues
 set all_projects=%all_projects%%delim%Ellumination.Collections.Deques
 set all_projects=%all_projects%%delim%Ellumination.Collections.Variants
+set all_projects=%all_projects%%delim%Ellumination.Collections.Sets
+set all_projects=%all_projects%%delim%Ellumination.Collections.ConcurrentList
 rem Setup Variants Projects
 set variants_projects=Ellumination.Collections.Variants
 rem Setup Collections Projects
@@ -75,6 +77,8 @@ rem Setup All Collections Core Projects
 set collections_core_projects=Ellumination.Collections.Core
 set collections_core_projects=%collections_core_projects%%delim%Ellumination.Collections.Sets
 set collections_core_projects=%collections_core_projects%%delim%Ellumination.Collections.ConcurrentList
+rem Setup Core Projects
+set core_projects=Ellumination.Collections.Core
 rem Setup Set Projects
 set set_projects=Ellumination.Collections.Sets
 rem Setup ConcurrentList Projects
@@ -235,6 +239,15 @@ if /i "%1" equ "--deques" (
         set projects=%deques_projects%
     ) else (
         set projects=%projects%%delim%%deques_projects%
+    )
+)
+
+:add_core_projects
+if /i "%1" equ "--core" (
+    if /i "%projects%" equ "" (
+        set projects=%core_projects%
+    ) else (
+        set projects=%projects%%delim%%core_projects%
     )
 )
 
