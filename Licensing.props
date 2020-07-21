@@ -6,35 +6,31 @@
     <PropertyGroup>
         <!-- TODO: TBD: rethink the target paths... ensure they land in each of the projects. -->
         <!-- TODO: TBD: also rethink the orientation, "desired" or "source/destination". -->
-        <_LicenseFileDirectory>..\..\</_LicenseFileDirectory>
-        <_DesiredLicenseFileName>LICENSE.</_DesiredLicenseFileName>
-        <InternalLicenseFileName>LICENSE.txt</InternalLicenseFileName>
-        <_DesiredFilePath>$(_LicenseFileDirectory)$(_DesiredLicenseFileName)</_DesiredFilePath>
-        <_LicenseFilePath>$(_LicenseFileDirectory)$(InternalLicenseFileName)</_LicenseFilePath>
+        <_SourceLicenseFileDirectory>..\..\</_SourceLicenseFileDirectory>
+        <_SourceLicenseFileName>LICENSE.</_SourceLicenseFileName>
+        <DestinationLicenseFileName>LICENSE.txt</DestinationLicenseFileName>
+        <_SourceLicenseFilePath>$(_SourceLicenseFileDirectory)$(_SourceLicenseFileName)</_SourceLicenseFilePath>
+        <_DestinationLicenseFilePath>$(DestinationLicenseFileName)</_DestinationLicenseFilePath>
     </PropertyGroup>
 
     <!-- TODO: TBD: specify one or the other, the LICENSE file is preferred, we think. -->
     <PropertyGroup>
-        <PackageLicenseFile>$(InternalLicenseFileName)</PackageLicenseFile>
+        <PackageLicenseFile>$(DestinationLicenseFileName)</PackageLicenseFile>
     </PropertyGroup>
 
     <PropertyGroup>
         <!-- TODO: TBD: https://docs.microsoft.com/en-us/dotnet/core/tools/csproj -->
-        <PackageLicenseExpression Condition="!Exists('$(_LicenseFilePath)')">GPL-3.0-only</PackageLicenseExpression>
+        <PackageLicenseExpression Condition="!Exists('$(_DestinationLicenseFilePath)')">GPL-3.0-only</PackageLicenseExpression>
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="$(_LicenseFilePath)" Pack="true" PackagePath="$(InternalLicenseFileName)">
+        <None Include="$(_DestinationLicenseFilePath)" Pack="true" PackagePath=".">
             <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 
-    <Target Name="CopyLicenseFileForPackagingPurposes" BeforeTargets="BeforeBuild" Condition="!Exists('$(_LicenseFilePath)')">
-        <Copy SourceFiles="$(_DesiredFilePath)" DestinationFiles="$(_LicenseFilePath)" SkipUnchangedFiles="true" />
+    <Target Name="CopyLicenseFileForPackagingPurposes" BeforeTargets="BeforeBuild" Condition="!Exists('$(_DestinationLicenseFilePath)')">
+        <Copy SourceFiles="$(_SourceLicenseFilePath)" DestinationFiles="$(_DestinationLicenseFilePath)" SkipUnchangedFiles="true" />
     </Target>
-
-    <ItemGroup>
-        <None Remove="$(InternalLicenseFileName)" />
-    </ItemGroup>
 
 </Project>

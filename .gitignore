@@ -16,6 +16,7 @@ _ReSharper.Caches/
 *.old/
 !.nuget/
 
+# Ignore licensing artifacts.
 LICENSE.txt
 
 \#*
