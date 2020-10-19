@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Ellumination.Collections
 {
@@ -20,6 +21,21 @@ namespace Ellumination.Collections
         /// <param name="disposing"></param>
         protected virtual void Dispose(bool disposing)
         {
+        }
+
+        /// <summary>
+        /// Gets the <see cref="IEnumerable{T}"/> Range corresponding to the
+        /// <paramref name="values"/>.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="values"></param>
+        /// <returns></returns>
+        protected static IEnumerable<T> Range<T>(params T[] values)
+        {
+            foreach (var value in values)
+            {
+                yield return value;
+            }
         }
 
         public void Dispose()
