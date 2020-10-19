@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -12,17 +13,21 @@ namespace Ellumination.Collections.Generic
     /// <inheritdoc />
     public class BidirectionalList<T> : IBidirectionalList<T>
     {
-        private readonly IList<T> _collection;
+        /// <inheritdoc/>
+        public IList<T> Collection { get; private set; }
 
         private delegate TResult ListFuncCallback<out TResult>(IList<T> collection);
 
-        private TResult ListFunc<TResult>(ListFuncCallback<TResult> callback) => callback.Invoke(_collection);
+        private TResult ListFunc<TResult>(ListFuncCallback<TResult> callback) => callback.Invoke(Collection);
 
         private delegate void ListActionCallback(IList<T> collection);
 
-        private void ListAction(ListActionCallback callback) => callback(_collection);
+        private void ListAction(ListActionCallback callback) => callback(Collection);
 
-        private static BidirectionalListItemCallback<T> DefaultCallback() => _ => { };
+        /// <summary>
+        /// Gets a Default Item Callback.
+        /// </summary>
+        private static BidirectionalListItemCallback<T> DefaultItemCallback => _ => { };
 
         /// <inheritdoc />
         public event BidirectionalListItemCallback<T> AddingItem;
@@ -42,7 +47,25 @@ namespace Ellumination.Collections.Generic
         /// </summary>
         /// <inheritdoc />
         public BidirectionalList()
-            : this(new List<T> { })
+            : this(new List<T> { }, null, null)
+        {
+        }
+
+        /// <summary>
+        /// Values Constructor.
+        /// </summary>
+        /// <param name="values"></param>
+        public BidirectionalList(IEnumerable<T> values)
+            : this(values, null, null)
+        {
+        }
+
+        /// <summary>
+        /// Values Constructor.
+        /// </summary>
+        /// <param name="values"></param>
+        public BidirectionalList(IList<T> values)
+            : this(values, null, null)
         {
         }
 
@@ -56,7 +79,8 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdding"></param>
         /// <param name="onRemoving"></param>
         /// <inheritdoc />
-        public BidirectionalList(BidirectionalListItemCallback<T> onAdded
+        public BidirectionalList(
+            BidirectionalListItemCallback<T> onAdded
             , BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding = null
             , BidirectionalListItemCallback<T> onRemoving = null)
@@ -74,8 +98,8 @@ namespace Ellumination.Collections.Generic
         /// <param name="onRemoving"></param>
         /// <inheritdoc />
         public BidirectionalList(IEnumerable<T> values
-            , BidirectionalListItemCallback<T> onAdded = null
-            , BidirectionalListItemCallback<T> onRemoved = null
+            , BidirectionalListItemCallback<T> onAdded
+            , BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding = null
             , BidirectionalListItemCallback<T> onRemoving = null)
             : this(values.ToList(), onAdded, onRemoved, onAdding, onRemoving)
@@ -91,15 +115,27 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdding"></param>
         /// <param name="onRemoving"></param>
         public BidirectionalList(IList<T> values
-            , BidirectionalListItemCallback<T> onAdded = null
-            , BidirectionalListItemCallback<T> onRemoved = null
+            , BidirectionalListItemCallback<T> onAdded
+            , BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding = null
             , BidirectionalListItemCallback<T> onRemoving = null)
         {
-            AddedItem += onAdded ?? DefaultCallback();
-            AddingItem += onAdding ?? DefaultCallback();
-            RemovedItem += onRemoved ?? DefaultCallback();
-            RemovingItem += onRemoving ?? DefaultCallback();
+            var defaultItemCallback = DefaultItemCallback;
+
+            // Connect the Bidirectional Item callback conditionally when there is a Callback.
+            void ConnectBidiCallback(BidirectionalListItemCallback<T> callback
+                , Action<BidirectionalList<T>, BidirectionalListItemCallback<T>> onConnect)
+            {
+                if (callback != null)
+                {
+                    onConnect.Invoke(this, callback);
+                }
+            }
+
+            ConnectBidiCallback(onAdded, (x, callback) => x.AddedItem += callback);
+            ConnectBidiCallback(onAdding, (x, callback) => x.AddingItem += callback);
+            ConnectBidiCallback(onRemoved, (x, callback) => x.RemovedItem += callback);
+            ConnectBidiCallback(onRemoving, (x, callback) => x.RemovingItem += callback);
 
             // Effectively we are also Adding the items to the initial Collection instance.
             foreach (var x in values)
@@ -107,7 +143,7 @@ namespace Ellumination.Collections.Generic
                 AddingItem?.Invoke(x);
             }
 
-            _collection = values;
+            Collection = values;
 
             foreach (var x in values)
             {
@@ -137,7 +173,7 @@ namespace Ellumination.Collections.Generic
         public void Clear()
         {
             // We need to maintain a Local Collection for this one.
-            var clearing = new List<T>(_collection);
+            var clearing = new List<T>(Collection);
 
             void ReportClearing(BidirectionalListItemCallback<T> callback)
             {

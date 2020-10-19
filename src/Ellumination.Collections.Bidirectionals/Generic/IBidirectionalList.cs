@@ -10,6 +10,11 @@ namespace Ellumination.Collections.Generic
     public interface IBidirectionalList<T> : IList<T>
     {
         /// <summary>
+        /// Gets the Collection associated with the Bidirectional assets.
+        /// </summary>
+        IList<T> Collection { get; }
+
+        /// <summary>
         /// Event raised prior to Adding an Item.
         /// </summary>
         event BidirectionalListItemCallback<T> AddingItem;
