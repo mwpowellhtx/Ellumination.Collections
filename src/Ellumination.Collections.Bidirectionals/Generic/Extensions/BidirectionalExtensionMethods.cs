@@ -17,7 +17,7 @@ namespace Ellumination.Collections.Generic
         /// <typeparam name="T"></typeparam>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values)
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values)
             => new BidirectionalList<T>(values);
 
         /// <summary>
@@ -30,7 +30,7 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdded"></param>
         /// <param name="onRemoved"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values
             , BidirectionalListItemCallback<T> onAdded, BidirectionalListItemCallback<T> onRemoved)
             => new BidirectionalList<T>(values, onAdded, onRemoved);
 
@@ -47,7 +47,7 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdding"></param>
         /// <param name="onRemoving"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IEnumerable<T> values
             , BidirectionalListItemCallback<T> onAdded, BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding, BidirectionalListItemCallback<T> onRemoving)
             => new BidirectionalList<T>(values, onAdded, onRemoved, onAdding, onRemoving);
@@ -61,7 +61,7 @@ namespace Ellumination.Collections.Generic
         /// <typeparam name="T"></typeparam>
         /// <param name="values"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IList<T> values)
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IList<T> values)
             => new BidirectionalList<T>(values);
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdded"></param>
         /// <param name="onRemoved"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IList<T> values
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IList<T> values
             , BidirectionalListItemCallback<T> onAdded, BidirectionalListItemCallback<T> onRemoved)
             => new BidirectionalList<T>(values, onAdded, onRemoved);
 
@@ -91,7 +91,7 @@ namespace Ellumination.Collections.Generic
         /// <param name="onAdding"></param>
         /// <param name="onRemoving"></param>
         /// <returns></returns>
-        public static IBidirectionalList<T> ToBidirectionalList<T>(this IList<T> values
+        public static BidirectionalList<T> ToBidirectionalList<T>(this IList<T> values
             , BidirectionalListItemCallback<T> onAdded, BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding, BidirectionalListItemCallback<T> onRemoving)
             => new BidirectionalList<T>(values, onAdded, onRemoved, onAdding, onRemoving);
@@ -108,6 +108,23 @@ namespace Ellumination.Collections.Generic
         /// <returns></returns>
         public static IBidirectionalList<T> Configure<T>(this IBidirectionalList<T> list
             , Action<IBidirectionalList<T>> onConfig = null)
+        {
+            onConfig?.Invoke(list);
+            return list;
+        }
+
+        /// <summary>
+        /// Configures the <paramref name="list"/> given an <paramref name="onConfig"/> callback.
+        /// Allows for an opportunity to do further configuration on the Bidirectional assets,
+        /// connect any <see cref="BidirectionalListItemCallback{T}"/> events, obtain the internal
+        /// <see cref="IBidirectionalList{T}.Collection"/>, and so on.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The List being configured.</param>
+        /// <param name="onConfig">A configuration Callback.</param>
+        /// <returns></returns>
+        public static BidirectionalList<T> Configure<T>(this BidirectionalList<T> list
+            , Action<BidirectionalList<T>> onConfig = null)
         {
             onConfig?.Invoke(list);
             return list;
