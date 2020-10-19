@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Ellumination.Collections.Generic
@@ -94,5 +95,22 @@ namespace Ellumination.Collections.Generic
             , BidirectionalListItemCallback<T> onAdded, BidirectionalListItemCallback<T> onRemoved
             , BidirectionalListItemCallback<T> onAdding, BidirectionalListItemCallback<T> onRemoving)
             => new BidirectionalList<T>(values, onAdded, onRemoved, onAdding, onRemoving);
+
+        /// <summary>
+        /// Configures the <paramref name="list"/> given an <paramref name="onConfig"/> callback.
+        /// Allows for an opportunity to do further configuration on the Bidirectional assets,
+        /// connect any <see cref="BidirectionalListItemCallback{T}"/> events, obtain the internal
+        /// <see cref="IBidirectionalList{T}.Collection"/>, and so on.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list">The List being configured.</param>
+        /// <param name="onConfig">A configuration Callback.</param>
+        /// <returns></returns>
+        public static IBidirectionalList<T> Configure<T>(this IBidirectionalList<T> list
+            , Action<IBidirectionalList<T>> onConfig = null)
+        {
+            onConfig?.Invoke(list);
+            return list;
+        }
     }
 }
