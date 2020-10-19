@@ -3,7 +3,7 @@
 setlocal
 
 :set_vars
-set nuget_api_key=%MY_NUGET_API_KEY%
+set nuget_api_key=%my_nuget_api_key%
 
 rem We do not publish the API key as part of the script itself.
 if /i "%nuget_api_key%" equ "" (
@@ -86,14 +86,20 @@ set concurrent_list_projects=Ellumination.Collections.ConcurrentList
 
 :parse_args
 
+:no-pause
+if /i "%1" equ "--no-pause" (
+    set no_pause=1
+    goto :next_arg
+)
+
 :set_drive_letter
 if /i "%1" equ "--drive-letter" (
-    set drive=%2
+    set publish_local_drive=%2
     shift
     goto :next_arg
 )
 if /i "%1" equ "--drive" (
-    set drive=%2
+    set publish_local_drive=%2
     shift
     goto :next_arg
 )
@@ -359,7 +365,7 @@ set xcopy_exe=xcopy.exe
 set nuget_exe=NuGet.exe
 
 set nupkg_ext=.nupkg
-if "%publish_local_drive%" == "" set publish_local_drive=F:
+if "%publish_local_drive%" == "" set publish_local_drive=E:
 set publish_local_dir=%publish_local_drive%\Dev\NuGet\local\packages
 
 rem Expecting NuGet to be found in the System Path.
@@ -416,6 +422,12 @@ exit /b
 
 :end
 
-endlocal
+if /i "%no_pause%" equ "1" (
+    goto :fini
+)
 
 pause
+
+:fini
+
+endlocal
