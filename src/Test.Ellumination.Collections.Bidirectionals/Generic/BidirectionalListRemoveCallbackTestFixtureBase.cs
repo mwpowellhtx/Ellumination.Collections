@@ -28,7 +28,7 @@ namespace Ellumination.Collections.Generic
 
         protected override IBidirectionalList<T> CreateBidirectionalList(Func<IEnumerable<T>> getValues
             , BidirectionalListItemCallback<T> beforeCallback, BidirectionalListItemCallback<T> afterCallback)
-            => new BidirectionalList<T>(getValues(), onRemoved: afterCallback, onRemoving: beforeCallback);
+            => new BidirectionalList<T>(getValues(), onAdded: null, onRemoved: afterCallback, onRemoving: beforeCallback);
 
         protected override void PrepareList(IList<T> list, T expectedItem)
         {
