@@ -36,4 +36,8 @@
         <PackageReference Include="xunit.fluently.assert.exceptionally" Version="$(XunitFluentlyAssertExceptionallyVersion)" />
     </ItemGroup>
 
+    <ItemGroup>
+        <PackageReference Include="Xwellbehaved" Version="2.4.3.1316" />
+    </ItemGroup>
+
 </Project>
