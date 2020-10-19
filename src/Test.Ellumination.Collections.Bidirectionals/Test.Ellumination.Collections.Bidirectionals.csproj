@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <FileVersion>1.1.11.24819</FileVersion>
-        <AssemblyVersion>1.1.11.24819</AssemblyVersion>
-        <PackageVersion>1.1.11.24819</PackageVersion>
+        <FileVersion>1.1.11.24825</FileVersion>
+        <AssemblyVersion>1.1.11.24825</AssemblyVersion>
+        <PackageVersion>1.1.11.24825</PackageVersion>
     </PropertyGroup>
 
     <Import Project="..\Unit.Testing.props" />
@@ -15,6 +15,10 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Ellumination.Collections.Bidirectionals\Ellumination.Collections.Bidirectionals.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     </ItemGroup>
 
 </Project>
