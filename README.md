@@ -13,6 +13,7 @@ The following are the currently deployed packages for our Collections projects.
 [![Enumerations Analyzers package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Analyzers.svg?label=Ellumination.Collections.Enumerations.Analyzers%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Analyzers)
 [![Enumerations Generators package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.Generators.svg?label=Ellumination.Collections.Enumerations.Generators%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.Generators)
 [![Enumerations BuildTime package](https://img.shields.io/nuget/v/Ellumination.Collections.Enumerations.BuildTime.svg?label=Ellumination.Collections.Enumerations.BuildTime%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Enumerations.BuildTime)
+[![Enumerations Bidirectional Collections package](https://img.shields.io/nuget/v/Ellumination.Collections.Bidirectionals.svg?label=Ellumination.Collections.Bidirectionals%20NuGet%20Package)](https://nuget.org/packages/Ellumination.Collections.Bidirectionals)
 
 We will append additional Collections shields over time.
 
