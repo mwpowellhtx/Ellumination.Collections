@@ -11,13 +11,10 @@ namespace Ellumination.Collections.Generic
         public T Value
         {
             get => this.Get();
-            set => this.Set(Value);
+            set => this.Set(value);
         }
 
-        /// <summary>
-        /// Gets the <see cref="Value"/> from the Singleton.
-        /// </summary>
-        /// <returns></returns>
+        /// <inheritdoc/>
         public virtual T Get()
         {
             // Yes we do want to capture the Old value prior to Eval.
@@ -32,15 +29,12 @@ namespace Ellumination.Collections.Generic
                 }
             }
 
-            this.BeforeGet?.Invoke(old, this._value);
+            this.BeforeGet?.Invoke(old, this._value, this._value);
 
             return this._value;
         }
 
-        /// <summary>
-        /// Sets the <see cref="Value"/> of the Singleton.
-        /// </summary>
-        /// <param name="value"></param>
+        /// <inheritdoc/>
         public virtual void Set(T value)
         {
             var old = this._value;
@@ -59,11 +53,11 @@ namespace Ellumination.Collections.Generic
             }
 
             // Not readonly and evaluation no response (null) or true, perform the set.
-            this.BeforeSet?.Invoke(old, value);
+            this.BeforeSet?.Invoke(old, this._value, value);
 
             this._value = value;
 
-            this.AfterSet?.Invoke(old, this._value);
+            this.AfterSet?.Invoke(old, this._value, this._value);
         }
 
         /// <inheritdoc/>
@@ -211,7 +205,7 @@ namespace Ellumination.Collections.Generic
         /// property get clause.
         /// </summary>
         /// <param name="singleton"></param>
-        public static implicit operator T(BidirectionalSingleton<T> singleton) => singleton.Value;
+        public static implicit operator T(BidirectionalSingleton<T> singleton) => singleton._value;
 
         /// <summary>
         /// Implicitly converts the <paramref name="value"/> to a
