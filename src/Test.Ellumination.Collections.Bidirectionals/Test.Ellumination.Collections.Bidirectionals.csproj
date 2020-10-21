@@ -2,9 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp2.1</TargetFramework>
-        <FileVersion>1.1.11.24825</FileVersion>
-        <AssemblyVersion>1.1.11.24825</AssemblyVersion>
-        <PackageVersion>1.1.11.24825</PackageVersion>
+        <FileVersion>1.1.11.24853</FileVersion>
+        <AssemblyVersion>1.1.11.24853</AssemblyVersion>
+        <PackageVersion>1.1.11.24853</PackageVersion>
     </PropertyGroup>
 
     <Import Project="..\Unit.Testing.props" />
