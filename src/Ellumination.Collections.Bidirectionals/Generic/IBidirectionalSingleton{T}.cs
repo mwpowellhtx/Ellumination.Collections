@@ -18,13 +18,13 @@ namespace Ellumination.Collections.Generic
         /// <summary>
         /// Gets the <see cref="Value"/> from the Singleton.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns the actual Value corresponding to the property Get clause.</returns>
         T Get();
 
         /// <summary>
         /// Sets the <see cref="Value"/> of the Singleton.
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">Should correspond to the Value property Set clause built-in variable.</param>
         void Set(T value);
 
         /// <summary>
