@@ -4,17 +4,17 @@
         <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-        <BumpWhichRelease>Patch</BumpWhichRelease>
+        <BumpWhichRelease>Minor</BumpWhichRelease>
     </PropertyGroup>
 
     <PropertyGroup>
         <TargetFramework>netstandard2.0</TargetFramework>
         <Description>Provides the ability to more intuitively connect Parent-Child relationships via Callback methods.</Description>
         <PackageTags>Collections;IList;List;IDictionary;Dictionary;key;value;pair;callback;delegate;bidirectionals;bidirectional;add;added;adding;remove;removed;removing;item;event;events;handler;handlers;parent;child;children;to;from</PackageTags>
-        <Version>1.3.1.26143</Version>
-        <FileVersion>1.3.1.26143</FileVersion>
-        <AssemblyVersion>1.3.1.26143</AssemblyVersion>
-        <PackageVersion>1.3.1.26143</PackageVersion>
+        <Version>1.4.0.12036</Version>
+        <FileVersion>1.4.0.12036</FileVersion>
+        <AssemblyVersion>1.4.0.12036</AssemblyVersion>
+        <PackageVersion>1.4.0.12036</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
